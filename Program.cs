@@ -46,11 +46,50 @@ namespace C__Doubly_Linked_List
         private Node head;
         private int count;
 
-        //contstructor
+        //Contstructor
         public LinkedList()
         {
             this.head = null;
             this.count = 0;
+        }
+
+        //Public Properties
+        public bool Empty
+        {
+            get { return this.count == 0; }
+        }
+
+        public int Count
+        {
+            get { return this.count; }
+        }
+
+        public object this [int index]
+        {
+            get { return this.Get(index); }
+        }
+
+        
+
+        public object Get(int index)
+        {
+            if (index < 0)
+                throw new ArgumentOutOfRangeException("index " + index);
+
+            if (this.Empty)
+                return null;
+
+            if (index >= this.count)
+                index = this.count -1;
+
+            Node current = this.head;
+
+            for (int i = 0; i < index; i++)
+            {
+                current = current.Next;
+            }
+
+            return current.Data;
         }
     }
 
