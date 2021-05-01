@@ -42,7 +42,16 @@ namespace C__Doubly_Linked_List
 
     public class LinkedList
     {
+        //Private Fields
+        private Node head;
+        private int count;
 
+        //contstructor
+        public LinkedList()
+        {
+            this.head = null;
+            this.count = 0;
+        }
     }
 
     class Program
