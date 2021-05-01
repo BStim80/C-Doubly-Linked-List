@@ -69,7 +69,38 @@ namespace C__Doubly_Linked_List
             get { return this.Get(index); }
         }
 
-        
+        //Methods
+        public object Add(int index, object o)
+        {
+            if (index < 0)
+                throw new ArgumentOutOfRangeException("Index " + index);
+
+            if (index > count)
+                index = count;
+
+            Node current = this.head;
+
+            //adds to beginning. Previous pointer should = null
+            if (this.Empty || index == 0)
+            {
+                this.head = new Node(o, this.head, this.head);///////////////////////////keep and eye on previous parameter
+            }
+
+            //loops to node right before the one we want to insert into
+            else
+            {
+                for (int i = 0; i < index -1; i++)
+                {
+                    current = current.Next;
+                    current = current.Previous;
+                }
+                current.Next = new Node(o, current.Next, current.Previous);///////////////keep and eye on previous parameter
+            }
+
+            count++;
+
+            return o;
+        }
 
         public object Get(int index)
         {
@@ -97,7 +128,15 @@ namespace C__Doubly_Linked_List
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello!");
+            LinkedList list = new LinkedList();
+
+            list.Add(0, "Test1");
+
+            list.Add(1, "Test2");
+
+            Console.WriteLine("Is it empty? " + list.Empty);
+
+            Console.WriteLine("Count: "+ list.Count);
 
             Console.ReadLine();
         }
