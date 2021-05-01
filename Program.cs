@@ -135,6 +135,8 @@ namespace C__Doubly_Linked_List
 
             list.Add(1, "Test2");
 
+            list.Add(2, "Test3");
+
             Console.WriteLine("Is it empty? " + list.Empty);
 
             Console.WriteLine("Count: "+ list.Count);
