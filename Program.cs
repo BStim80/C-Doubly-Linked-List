@@ -43,7 +43,7 @@ namespace C__Doubly_Linked_List
     public class LinkedList
     {
         //Private Fields
-        private Node head;
+        private Node head;//merely points to the head node(first node would actually come after this)
         private Node tail;
         private int count;
 
@@ -51,6 +51,7 @@ namespace C__Doubly_Linked_List
         public LinkedList()
         {
             this.head = null;
+            this.tail = null;//not sure if this should be here
             this.count = 0;
         }
 
@@ -65,13 +66,29 @@ namespace C__Doubly_Linked_List
             get { return this.count; }
         }
 
-        public object this [int index]
+        public object this [int index]//indexer(just another way to use the get method)
         {
             get { return this.Get(index); }
         }
 
         //Methods
-        public object Add(int index, object o)
+        public object InsertAtHead(object o)
+        {
+            if (this.Empty)
+            {
+                this.head = new Node(o, this.head, this.head);
+            }
+
+            //if list != empty, create temp node. adjust pointers. make temp node = head
+            else
+            {
+                Node temp = new Node(o, this.head, this.head);
+            }
+
+            return o;
+        }
+
+        public object InsertByIndex(int index, object o)
         {
             if (index < 0)
                 throw new ArgumentOutOfRangeException("Index " + index);
@@ -131,15 +148,16 @@ namespace C__Doubly_Linked_List
         {
             LinkedList list = new LinkedList();
 
-            list.Add(0, "Test1");
+            list.InsertByIndex(0, "test1");
+            list.InsertByIndex(0, "Test2");
 
-            list.Add(1, "Test2");
-
-            list.Add(2, "Test3");
+            list.InsertAtHead(5);
 
             Console.WriteLine("Is it empty? " + list.Empty);
 
             Console.WriteLine("Count: "+ list.Count);
+
+            Console.WriteLine("Head Node is: " + list.Get(0));
 
             Console.ReadLine();
         }
