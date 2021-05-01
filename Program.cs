@@ -6,7 +6,7 @@ namespace C__Doubly_Linked_List
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello!");
 
             Console.ReadLine();
         }
