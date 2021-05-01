@@ -44,6 +44,7 @@ namespace C__Doubly_Linked_List
     {
         //Private Fields
         private Node head;
+        private Node tail;
         private int count;
 
         //Contstructor
