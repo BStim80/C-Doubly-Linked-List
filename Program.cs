@@ -7,6 +7,8 @@ namespace C__Doubly_Linked_List
     //previous and next nodes in the list
     public class Node
     {
+        //testing git after move to VS 2019
+
         //private fields
         private object data;
         private Node next;
